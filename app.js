@@ -13,12 +13,12 @@ let maxRadius = 50;
 let minRadius = 2;
 
 let colorArray = [
-    '#4F1964',
-    '#972668',
-    '#CF4B5F',
-    '#F37F54',
-    '#FFBB53',
-    '#F9F871'
+    "#CF4B5F",
+    "#805677",
+    "#C06C80",
+    "#F18D76",
+    "#FFBE68",
+    "#F9F871"
 ]
 
 addEventListener('mousemove', (event) => {
@@ -37,6 +37,7 @@ class Circle {
         this.x = x;
         this.y = y;
         this.radius = radius;
+        this.minRadius = radius;
         this.color = color;
         this.fill = fill;
         this.dx = dx;
@@ -71,7 +72,7 @@ class Circle {
             if (this.radius < maxRadius) {
                 this.radius += 1;
             }
-        } else if(this.radius > minRadius) {
+        } else if(this.radius > this.minRadius) {
             this.radius -= 1;
         }
 
@@ -83,7 +84,7 @@ let circleArray = [];
 
 function init() {
     circleArray = []
-    for (let i = 0; i <= 800; i++) {
+    for (let i = 0; i <= 400; i++) {
         let radius = Math.random() * 3 + 1;
         let x = Math.random() * (innerWidth - radius * 2) + radius;
         let y = Math.random() * (innerHeight - radius * 2) + radius;
